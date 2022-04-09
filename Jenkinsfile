@@ -22,18 +22,14 @@ pipeline {
         }
       }
     }
-    stage('SCA') {
+    stage('DAST') {
       steps {
-        container('maven') {
-          sh './mvnw org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom'
-        }
-      }
-      post {
-        success {
-          dependencyTrackPublisher projectName: 'sample-spring-app', projectVersion: '0.0.1', artifact: 'target/bom.xml', autoCreateProjects: true, synchronous: true
-          archiveArtifacts allowEmptyArchive: true, artifacts: 'target/bom.xml', fingerprint: true, onlyIfSuccessful: true
+        container('docker-tools') {
+          sh "docker pull owasp/zap2docker-weekly"
+          sh "docker run -t owasp/zap2docker-stable zap-api-scan.py -t http://172.17.0.5:30001/v3/api-docs -f openapi"
         }
       }
     }
+    
   }
 }
