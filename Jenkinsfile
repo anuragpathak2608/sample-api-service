@@ -76,14 +76,18 @@ pipeline {
         stage('Contianer Scan') {
           steps {
             container('docker-tools') {
-              sh "grype ${APP_NAME}"
+              catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                sh "grype ${APP_NAME}"
+              }
             }
           }
         }
         stage('Container Audit') {
           steps {
             container('docker-tools') {
-              sh "dockle ${APP_NAME}"
+              catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                sh "dockle ${APP_NAME}"
+              }
             }
           }
         }
