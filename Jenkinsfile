@@ -40,13 +40,6 @@ pipeline {
         }
       }
     }
-    stage('truffelhogsv3 Scan') {
-      steps {
-        container('trufflehog') {
-          sh 'docker run -it -v "$PWD:/pwd" trufflesecurity/trufflehog:latest git ${GIT_URL} --only-verified --fail --json >> truflehog.log'
-        }
-      }
-    }
     stage('Package') {
       steps {
         container('docker-tools') {
