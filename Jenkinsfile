@@ -16,7 +16,6 @@ pipeline {
         stage('Install Dependencies') {
           steps {
             container('maven') {
-              sh 'git config --global url."https://".insteadOf git:/'
               sh './mvnw install -DskipTests -Dspotbugs.skip=true -Ddependency-check.skip=true'
             }
           }
