@@ -51,7 +51,7 @@ pipeline {
     stage('Package') {
       steps {
         container('docker-tools') {
-          sh "docker build . -t ${APP_NAME}"
+         // sh "docker build . -t ${APP_NAME}"
         }
       }
     }
