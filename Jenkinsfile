@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Secrets Scanner') {
       steps {
-        container('trufflehog') {
+        container('docker-tools') {
           echo "Secrets Scanner"
           // sh "kubectl apply -f k8s.yaml"
           sh "docker run -it -v trufflesecurity/trufflehog:latest github --repo https://github.com/anuragpathak2608/sample-api-service/"
