@@ -27,7 +27,7 @@ pipeline {
         container('docker-tools') {
           echo "Secrets Scanner"
           // sh "kubectl apply -f k8s.yaml"
-          sh "docker run --rm trufflesecurity/trufflehog:latest github --repo https://github.com/anuragpathak2608/sample-api-service --fail"
+          sh "docker run --rm trufflesecurity/trufflehog:latest github --repo https://github.com/anuragpathak2608/sample-api-service"
         }
       }
     }
