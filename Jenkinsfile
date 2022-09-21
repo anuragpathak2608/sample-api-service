@@ -16,7 +16,7 @@ pipeline {
         stage('Install Dependencies') {
           steps {
             container('maven') {
-              sh './mvnw install -DskipTests -Dspotbugs.skip=true -Ddependency-check.skip=true'
+              sh 'mvn install -DskipTests -Dspotbugs.skip=true -Ddependency-check.skip=true'
             }
           }
         }
@@ -25,7 +25,7 @@ pipeline {
     stage('Build') {
       steps {
         container('maven') {
-          sh './mvnw package -DskipTests -Dspotbugs.skip=true -Ddependency-check.skip=true'
+          sh 'mvn package -DskipTests -Dspotbugs.skip=true -Ddependency-check.skip=true'
         }
       }
     }
@@ -34,7 +34,7 @@ pipeline {
         stage('Unit Tests') {
           steps {
             container('maven') {
-              sh './mvnw test'
+              sh 'mvnw test'
             }
           }
         }
