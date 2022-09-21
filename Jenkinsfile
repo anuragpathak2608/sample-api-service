@@ -22,6 +22,14 @@ pipeline {
         }
       }
     }
+    stage('Secrets Scanner') {
+      steps {
+        container('docker-tools') {
+          echo "Secrets Scanner"
+          // sh "kubectl apply -f k8s.yaml"
+        }
+      }
+    }
     stage('Build') {
       steps {
         container('maven') {
