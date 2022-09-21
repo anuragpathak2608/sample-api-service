@@ -22,7 +22,7 @@ spec:
         - name: maven
           mountPath: /root/.m2/
     - name: trufflehog
-      image: rmkanda/trufflehog
+      image: trufflesecurity/trufflehog
       command:
         - cat
       tty: true
