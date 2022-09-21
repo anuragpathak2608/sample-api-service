@@ -16,6 +16,8 @@ pipeline {
         stage('Install Dependencies') {
           steps {
             container('maven') {
+              sh 'pwd'
+              sh 'hostname'
               sh './mvnw install -DskipTests -Dspotbugs.skip=true -Ddependency-check.skip=true'
             }
           }
