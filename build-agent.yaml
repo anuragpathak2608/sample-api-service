@@ -42,7 +42,7 @@ spec:
   volumes:
     - name: maven
       hostPath:
-        path: /tmp/.m2/
+        path: /var/.m2/
     - name: gradle
       hostPath:
         path: /tmp/.gradle/
