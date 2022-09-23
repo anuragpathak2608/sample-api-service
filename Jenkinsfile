@@ -70,7 +70,7 @@ pipeline {
         stage('Kubesec') {
           steps {
             container('docker-tools') {
-              sh 'kubesec scan k8s.yaml || exit 0'
+              sh 'kubesec scan k8s.yaml'
             }
           }
         }
