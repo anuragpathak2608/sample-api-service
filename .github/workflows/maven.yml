@@ -34,6 +34,6 @@ jobs:
     - name: Install Vet
       run: brew install safedep/tap/vet
     - name: Run Vet SCA Scanning
-      run: vet scan -D .    
+      run: vet scan --lockfiles ./target/bom.json --lockfile-as bom-cyclonedx --report-summary=false --filter 'vulns.critical.exists(p, true) || vulns.high.exists(p, true)' --report-markdown=report.md --filter-fail   
     - name: Add Vet Report to Summary
       run: cat vet.md >> $GITHUB_STEP_SUMMARY
