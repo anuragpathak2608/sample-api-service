@@ -29,6 +29,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: PWD
+      run: pwd | ls 
     - name: Run Vet SCA Scanning
       run: | 
               docker run --rm -i ghcr.io/safedep/vet:latest version      
