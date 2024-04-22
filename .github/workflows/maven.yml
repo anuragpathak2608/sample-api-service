@@ -31,7 +31,7 @@ jobs:
       run: mvn -B package --file pom.xml
     
     - name: Run Vet SCA Scanning
-        run: docker run --rm -it ghcr.io/safedep/vet:latest version
+      run: docker run --rm -it ghcr.io/safedep/vet:latest version
             
       - name: Add Vet Report to Summary
         run: cat vet.md >> $GITHUB_STEP_SUMMARY
