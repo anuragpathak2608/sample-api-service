@@ -17,7 +17,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -32,7 +32,6 @@ jobs:
     - name: PWD
       run: brew tap safedep/tap | brew install safedep/tap/vet
     - name: Run Vet SCA Scanning
-      run: | 
-              sudo docker run --rm -i ghcr.io/safedep/vet:latest scan -D .      
+      run: vet scan -D .    
     - name: Add Vet Report to Summary
       run: cat vet.md >> $GITHUB_STEP_SUMMARY
