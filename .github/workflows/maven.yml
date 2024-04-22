@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: PWD
-      run: pwd | ls 
+      run: brew tap safedep/tap | brew install safedep/tap/vet
     - name: Run Vet SCA Scanning
       run: | 
               sudo docker run --rm -i ghcr.io/safedep/vet:latest scan -D .      
