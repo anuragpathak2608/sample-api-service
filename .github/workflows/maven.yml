@@ -31,8 +31,7 @@ jobs:
       run: mvn -B package --file pom.xml
     
     - name: Run Vet SCA Scanning
-        run: |
-          docker run \
+        run: docker run \
             -v `pwd`:/code \
             ghcr.io/safedep/vet:latest \
             scan -s -D /code \
