@@ -29,8 +29,10 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: PWD
-      run: brew tap safedep/tap | brew install safedep/tap/vet
+    - name: Install Vet
+      run: brew tap safedep/tap 
+    - name: Install Vet
+      run: brew install safedep/tap/vet
     - name: Run Vet SCA Scanning
       run: vet scan -D .    
     - name: Add Vet Report to Summary
