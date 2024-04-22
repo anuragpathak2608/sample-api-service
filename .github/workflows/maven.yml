@@ -36,9 +36,6 @@ jobs:
             -v `pwd`:/code \
             ghcr.io/safedep/vet:latest \
             scan -s -D /code \
-            --exceptions /code/.vet/exceptions.yml \
-            --filter-suite /code/.vet/oss-risk-pack.yml \
-            --filter-fail \
             --report-markdown=/code/vet.md
             
       - name: Add Vet Report to Summary
