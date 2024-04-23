@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Sample-API-Service-Vet_Scan
 
 on:
   push:
